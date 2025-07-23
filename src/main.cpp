@@ -13,10 +13,6 @@ private:
     
 public:
   std::vector<std::function<void()>> actions;
-    
-  Menu(const std::string& title, const std::string& text, bool is_submenu=false)
-    : title(title), text(text), is_submenu(is_submenu) {}
-
   Menu(
     const std::string& title,
     const std::vector<std::string>& choices,
@@ -24,23 +20,37 @@ public:
     bool is_submenu=false
   ) : title(title), choices(choices), is_submenu(is_submenu), actions(actions) {}
 
+  Menu(
+    const std::string& title,
+    const std::string& text
+  ): title(title), text(text), choices(), is_submenu(true) {}
+
+  Menu& set_text(const std::string& text) {
+    this->text = text;
+    return *this;
+  }
+
   void show() {
     clear();
     attron(A_BOLD);
     printw("%s", title.c_str());
     attroff(A_BOLD);
 
-    for(int i = 0; i < (int)choices.size(); i++) {
-      std::ostringstream oss;
-      oss << "\n[" << i+1 << "]. " << choices[i];
-            
-      if(i == current_choice_index) {
-        attron(COLOR_PAIR(1));
-        printw("%s", oss.str().c_str());
-        attroff(COLOR_PAIR(1));
-      } else {
-        printw("%s", oss.str().c_str());
+    if(!choices.empty()) {
+      for(int i = 0; i < (int)choices.size(); i++) {
+        std::ostringstream oss;
+        oss << "\n[" << i+1 << "]. " << choices[i];
+              
+        if(i == current_choice_index) {
+          attron(COLOR_PAIR(1));
+          printw("%s", oss.str().c_str());
+          attroff(COLOR_PAIR(1));
+        } else {
+          printw("%s", oss.str().c_str());
+        }
       }
+    } else {
+      printw("%s", text.c_str());
     }
 
     if(is_submenu) {
@@ -93,6 +103,34 @@ int main() {
   start_color();
   init_pair(1, COLOR_BLACK, COLOR_WHITE);
 
+  auto carotid_sinus = std::make_shared<Menu>(
+    "Carotid Sinus",
+    "\n\n The carotid sinus is a baroreceptor. This allows for homeostatic mechanisms to monitor \
+blood pressure. The baroreceptors inside the sinus are innervated by the glossopharyngeal \
+nerve (CN IX).\n\n \
+It is a very sensitive site of the body as stimulation can drive large-scale reflex effects \
+throughout the body. Physical assault occuring at this point produces massive baroflex \
+activation and can cause cerebral ischemia.\n\n \
+The sinus often has artherosclerotic plaques because of disturbed hemodynamics. Because \
+of these plaques, which can lead to ischemic strokes and transient ischemic attacks, carotid \
+endarterectomies are usually done for preventative healthcare.[1]\n\n\
+Sources:\n\
+[1]. https://en.wikipedia.org/wiki/Carotid_sinus"
+  );
+
+  auto icc_branches = std::make_shared<Menu>(
+    "Internal Carotid Artery",
+    std::vector<std::string>{
+      "Carotid Sinus",
+      "Carotid Body"
+    },
+
+    std::vector<std::function<void()>>{
+      [carotid_sinus]{carotid_sinus->run();}
+    },
+    true
+  );
+
   auto cca_branches = std::make_shared<Menu>(
     "Common Carotid Branches",
     std::vector<std::string>{
@@ -102,7 +140,7 @@ int main() {
 
     std::vector<std::function<void()>>{
       []{ print("hi\n"); },
-      []{ print("sup\n"); }
+      [icc_branches]{icc_branches->run();}
     },
     true
   );
