@@ -1,3 +1,0 @@
-C:/Users/Administrator/Documents/Programs/C++/Arterypedia/build/CMakeFiles/arterypedia.dir
-C:/Users/Administrator/Documents/Programs/C++/Arterypedia/build/CMakeFiles/edit_cache.dir
-C:/Users/Administrator/Documents/Programs/C++/Arterypedia/build/CMakeFiles/rebuild_cache.dir
