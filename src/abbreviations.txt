@@ -1,0 +1,6 @@
+This is just a list of abbreviations.
+
+IC - Internal Carotid
+CCA - Common Carotid Artery
+CS - carotid sinus
+CB - carotid body

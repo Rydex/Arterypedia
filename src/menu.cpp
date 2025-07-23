@@ -9,7 +9,7 @@ void Menu::show() {
   attroff(A_BOLD);
 
   if(!choices.empty()) {
-    for(int i = 0; i < (int)choices.size(); i++) {
+    for(int i=0; i<(int)choices.size(); i++) {
       std::ostringstream oss;
       oss << "\n[" << i+1 << "]. " << choices[i];
               
@@ -24,6 +24,22 @@ void Menu::show() {
   } else {
     printw("%s", text.c_str());
   }
+
+  if(!related.empty()) {
+    printw("\n");
+    attron(A_BOLD);
+    printw("Related topics:\n\n");
+    attroff(A_BOLD);
+    for(int i=0; i<(int)related.size(); i++) {
+      std::ostringstream oss;
+      oss << related[i] << '\n';
+
+      attron(A_UNDERLINE);
+      printw("%s", oss.str().c_str());
+      attroff(A_UNDERLINE);
+    }
+  }
+  refresh();
 
   if(is_submenu) {
     printw("\n\n[b]. Back to main menu");
@@ -57,4 +73,11 @@ void Menu::run() {
 
 decltype(Menu::choices) Menu::get_choices() const {
   return choices;
+}
+
+void print(const std::string& text) {
+  clear(); 
+  printw("%s", text.c_str());
+  refresh(); 
+  getch(); 
 }
