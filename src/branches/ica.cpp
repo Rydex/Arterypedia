@@ -14,7 +14,7 @@ The sinus often has artherosclerotic plaques because of disturbed hemodynamics. 
 of these plaques, which can lead to ischemic strokes and transient ischemic attacks, carotid \
 endarterectomies are usually done for preventative healthcare.[1]\n\n\
 Sources:\n\
-[1]. https://en.wikipedia.org/wiki/Carotid_sinus\n",
+[1]. https://en.wikipedia.org/wiki/Carotid_sinus",
     std::vector<std::string>{
       "Carotid body",
       "Internal carotid artery"
@@ -31,7 +31,7 @@ The carotid body detects changes in the composition of arterial blood flowing th
 but also of carbon dioxide. It is also sensitive to changes in blood pH, and temperature.[2]\n\n\
 Sources:\n\
 [1]. https://iowaprotocols.medicine.uiowa.edu/protocols/carotid-body-and-carotid-sinus-general-information\n\
-[2]. https://en.wikipedia.org/wiki/Carotid_body\n",
+[2]. https://en.wikipedia.org/wiki/Carotid_body",
     std::vector<std::string>{
       "Carotid sinus",
       "Internal carotid artery"
@@ -44,8 +44,6 @@ std::shared_ptr<Menu> make_ctna() {
     "Caroticotympanic arteries",
     "\n\n The caroticotympanic artery (tympanic branch) is a small, \
 sometimes doubled artery which arises from the petrous part of the internal carotid artery.[1]\n\n\
-Supplies\n \
-Contributes arterial supply to the osseous part of the pharyngotympanic (Eustachian) tube.[4]:706\n\n\
 Anastomoses\n \
 It forms anastomoses with the anterior tympanic branch of the maxillary artery, and the stylomastoid artery.[4]:416\n\n\
 Variation\n \
@@ -57,6 +55,9 @@ Sources:\n\
 [2]. https://karger.com/cto/article-abstract/166/3/319/89248/\n\
 [3]. http://pubs.rsna.org/doi/10.1148/131.1.133\n\
 [4]. Standring, Susan (2020). Gray's Anatomy: The Anatomical Basis of Clinical Practice (42th ed.). New York. ISBN 978-0-7020-7707-4. OCLC 1201341621.",
+    "Osseous part of the pharyngotympanic (Eustachian) tube.[4]:706",
+    "None",
+    "Petrous part of the internal carotid artery",
     std::vector<std::string>{
       "Internal carotid artery",
       "Maxillary artery",
@@ -71,13 +72,16 @@ std::shared_ptr<Menu> make_vda() {
     "\n\nThe artery of the pterygoid canal (or Vidian artery) is an artery in the pterygoid canal.\n\n\
 It usually arises from the external carotid artery,[1] but can arise from either the internal or external \
 carotid artery or serve as an anastomosis between the two.[2] Sometimes it originates as a branch \
-of the distal maxillary artery.[3]\n\n\
+of the distal maxillary artery.[3] When this artery arises from the internal carotid artery, \
+it arises from C2 (petrous segment) of the internal carotid.[4]\n\n\
 The eponym, Vidian artery is named after Italian surgeon and anatomist Vidius Vidius.\n\n\
-Supplies: Eustachian tube, tympanic cavity and the superior portion of the pharynx.[3]\n\n\
+Supply\n \
+This artery supplies the Eustachian tube, tympanic cavity and the superior portion of the pharynx.[3]\n\n\
 Sources:\n\
 [1]. http://www.medscape.com/viewarticle/494394_2\n\
 [2]. https://en.wikipedia.org/wiki/Artery_of_the_pterygoid_canal\n\
-[3]. https://radiopaedia.org/articles/vidian-artery-2",
+[3]. https://radiopaedia.org/articles/vidian-artery-2\n\
+[4]. https://en.wikipedia.org/wiki/Internal_carotid_artery",
     std::vector<std::string>{
       "External carotid artery",
       "Internal carotid artery"
