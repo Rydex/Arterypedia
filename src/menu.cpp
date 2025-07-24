@@ -20,6 +20,10 @@ void Menu::show() {
       } else {
         printw("%s", oss.str().c_str());
       }
+
+    }
+    if(!text.empty()) {
+      printw("\n\n%s", text.c_str());
     }
   } else {
     printw("%s", text.c_str());
@@ -28,11 +32,14 @@ void Menu::show() {
   if(!related.empty()) {
     printw("\n");
     attron(A_BOLD);
-    printw("Related topics:\n\n");
+    printw("\nRelated topics:\n");
     attroff(A_BOLD);
     for(int i=0; i<(int)related.size(); i++) {
       std::ostringstream oss;
-      oss << related[i] << '\n';
+      oss << related[i];
+      if(i != (int)related.size()-1) {
+        oss << '\n';
+      }
 
       attron(A_UNDERLINE);
       printw("%s", oss.str().c_str());

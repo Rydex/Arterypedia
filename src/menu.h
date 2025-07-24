@@ -24,6 +24,14 @@ public:
     const std::vector<std::string>& related
   ): title(title), text(text), choices(), related(related), is_submenu(true) {}
 
+  Menu(
+    const std::string& title,
+    const std::vector<std::string>& choices,
+    const std::vector<std::function<void()>>& actions,
+    const std::string& text,
+    bool is_submenu=false
+  ): title(title), text(text), choices(choices), actions(actions), is_submenu(is_submenu) {}
+
   void show();
   void run();
 

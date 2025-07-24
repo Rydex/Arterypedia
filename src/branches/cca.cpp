@@ -6,10 +6,10 @@ std::shared_ptr<Menu> make_cs() {
     "Carotid sinus",
     "\n\n The carotid sinus is a baroreceptor. This allows for homeostatic mechanisms to monitor \
 blood pressure. The baroreceptors inside the sinus are innervated by the glossopharyngeal \
-nerve (CN IX).\n\n \
+nerve (CN IX).\n\n\
 It is a very sensitive site of the body as stimulation can drive large-scale reflex effects \
 throughout the body. Physical assault occuring at this point produces massive baroflex \
-activation and can cause cerebral ischemia.\n\n \
+activation and can cause cerebral ischemia.\n\n\
 The sinus often has artherosclerotic plaques because of disturbed hemodynamics. Because \
 of these plaques, which can lead to ischemic strokes and transient ischemic attacks, carotid \
 endarterectomies are usually done for preventative healthcare.[1]\n\n\
@@ -26,7 +26,7 @@ std::shared_ptr<Menu> make_cb() {
   return std::make_shared<Menu>(
     "Carotid body",
     "\n\n The carotid body is a small cluster of peripheral chemoreceptor cells and supporting sustentacular \
-cells situated at the bifurcation of each common carotid artery in its tunica externa.[1]\n\n \
+cells situated at the bifurcation of each common carotid artery in its tunica externa.[1]\n\n\
 The carotid body detects changes in the composition of arterial blood flowing through it, mainly the partial pressure of arterial oxygen, \
 but also of carbon dioxide. It is also sensitive to changes in blood pH, and temperature.[2]\n\n\
 Sources:\n\
@@ -50,7 +50,7 @@ Anastomoses\n \
 It forms anastomoses with the anterior tympanic branch of the maxillary artery, and the stylomastoid artery.[4]:416\n\n\
 Variation\n \
 Because the caroticotympanic artery is more often absent than present, \
-some controversy exists as to whether these are should be classified as an anatomical variation.[2]\n\n \
+some controversy exists as to whether these are should be classified as an anatomical variation.[2]\n\n\
 Nevertheless, its relevance to internal carotid artery pathologies supports its continued classification as a non-variation anatomical structure.[3]\n\n\
 Sources:\n\
 [1]. https://en.wikipedia.org/wiki/Caroticotympanic_arteries\n\
@@ -68,7 +68,7 @@ Sources:\n\
 std::shared_ptr<Menu> make_vda() {
   return std::make_shared<Menu>(
     "Vidian artery (artery of the pterygoid canal)",
-    "\n\nThe artery of the pterygoid canal (or Vidian artery) is an artery in the pterygoid canal.\n\n \
+    "\n\nThe artery of the pterygoid canal (or Vidian artery) is an artery in the pterygoid canal.\n\n\
 It usually arises from the external carotid artery,[1] but can arise from either the internal or external \
 carotid artery or serve as an anastomosis between the two.[2] Sometimes it originates as a branch \
 of the distal maxillary artery.[3]\n\n\
@@ -85,6 +85,25 @@ Sources:\n\
   );
 }
 
+std::shared_ptr<Menu> make_ihpa() {
+  return std::make_shared<Menu>(
+    "Inferior hypophyseal artery",
+    "\n\nThe inferior hypophyseal artery is an artery in the head. It is a branch of the cavernous carotid artery, \
+itself from the internal carotid artery.[1] It supplies the posterior pituitary of the pituitary gland.[2]\n\n\
+Alternatively, it may arise from the meningohypophyseal artery, and may also give off the medial clival artery.[3]\n\n\
+Sources:\n\
+[1]. Marieb, Elaine (2014). Anatomy & physiology. Glenview, IL: Pearson Education, Inc. ISBN 978-0321861580.\n\
+[2]. Maynard, Robert Lewis; Downes, Noel (2019). \"16 - Endocrine Glands\". Anatomy and Histology of the Laboratory Rat in Toxicology and Biomedical Research. Academic Press. pp. 185–196. doi:10.1016/B978-0-12-811837-5.00016-2. ISBN 978-0-12-811837-5. S2CID 239275973.\n\
+[3]. Seker, Askin; Martins, Carolina; Rhoton Jr., Albert L. (2010). \"2 - Meningeal Anatomy\". Meningiomas. Saunders. pp. 11–51. doi:10.1016/B978-1-4160-5654-6.00002-7. ISBN 978-1-4160-5654-6.",
+
+    std::vector<std::string>{
+      "Meningohypophyseal artery",
+      "Internal carotid artery",
+      "Medial clival artery"
+    }
+  );
+}
+
 std::shared_ptr<Menu> make_ic() {
   return std::make_shared<Menu>(
     "Internal carotid artery",
@@ -92,15 +111,19 @@ std::shared_ptr<Menu> make_ic() {
       "Carotid sinus",
       "Carotid body",
       "Caroticotympanic arteries",
-      "Artery of the pterygoid canal (Vidian artery)"
+      "Artery of the pterygoid canal (Vidian artery)",
+      "Inferior hypophyseal artery"
     },
 
     std::vector<std::function<void()>>{
       []{ make_cs()->run(); },
       []{ make_cb()->run(); },
       []{ make_ctna()->run(); },
-      []{ make_vda()->run(); }
+      []{ make_vda()->run(); },
+      []{ make_ihpa()->run(); }
     },
+
+    "test",
     true
   );
 }

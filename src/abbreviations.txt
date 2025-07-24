@@ -7,3 +7,4 @@ CB - carotid body
 ECA - External Carotid Artery
 CTNA - Caroticotympanic arteries
 VDA - vidian artery (pterygoid canal artery)
+IHPA - inferior hypophysial artery
