@@ -4,3 +4,6 @@ IC - Internal Carotid
 CCA - Common Carotid Artery
 CS - carotid sinus
 CB - carotid body
+ECA - External Carotid Artery
+CTNA - Caroticotympanic arteries
+VDA - vidian artery (pterygoid canal artery)

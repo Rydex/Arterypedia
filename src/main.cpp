@@ -34,7 +34,7 @@ int main() {
   );
 
   auto submenu = std::make_shared<Menu>(
-    "Artery Details",
+    "Artery details",
     std::vector<std::string>{
       "Left common carotid",
       "Left subclavian",
@@ -49,7 +49,8 @@ int main() {
     true
   );
   Menu main_menu(
-    "Welcome to Arterypedia!\n",
+    "Welcome to Arterypedia!\nNote: It is recommended that you zoom out of your console, as \
+some descriptions can be very long.\n",
     std::vector<std::string>{
       "View aortic arch branches",
     },

@@ -10,12 +10,14 @@ add_executable(
 	src/main.cpp
 	src/menu.cpp
 	src/branches/cca.cpp
+	src/branches/eca.cpp
 )
 
 add_library(mylib
 	src/menu.cpp
 	src/menu.h
 	src/branches/cca.cpp
+	src/branches/eca.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE ncursesw)
